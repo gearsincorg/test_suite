@@ -41,6 +41,7 @@ enum TestModes {
     OLP_ProportionalSpeeds,
     OLP_BrakingBehavior,
     OLP_DynamicSpeedChange,
+    OLP_SmoothTransitions,
 
     CLV_ProportionalSpeeds,
     CLV_BrakingBehavior,
@@ -106,8 +107,8 @@ public class TestMotorPID extends LinearOpMode {
                     OLPCLV_DynamicSpeedChange(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
                     break;
 
-                case CLV_SmoothTransitions:
-                    CLV_SmoothTransitions(DcMotor.RunMode.RUN_USING_ENCODER);
+                case OLP_SmoothTransitions:
+                    OLPCLV_SmoothTransitions(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
                     break;
 
                 case CLV_ProportionalSpeeds:
@@ -121,6 +122,11 @@ public class TestMotorPID extends LinearOpMode {
                 case CLV_DynamicSpeedChange:
                     OLPCLV_DynamicSpeedChange(DcMotor.RunMode.RUN_USING_ENCODER);
                     break;
+
+                case CLV_SmoothTransitions:
+                    OLPCLV_SmoothTransitions(DcMotor.RunMode.RUN_USING_ENCODER);
+                    break;
+
             }
         }
 
@@ -220,7 +226,7 @@ public class TestMotorPID extends LinearOpMode {
     // Step the motor between 0 and selected speed (full range, 20% steps).
     // Verify single direction of travel. (no rollback)
     // Display number of rollback detections for each speed.
-    private void CLV_SmoothTransitions(DcMotor.RunMode mode) {
+    private void OLPCLV_SmoothTransitions(DcMotor.RunMode mode) {
         double  speedStepSize = 0.2;
         int     speedSteps    = (int)(2.0 / speedStepSize) + 1;
         int     speedStep;
