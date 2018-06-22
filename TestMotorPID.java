@@ -54,19 +54,16 @@ enum TestModes {
 
 
 /**
- * This file contains an minimal example of a Linear "OpMode". An OpMode is a 'program' that runs in either
- * the autonomous or the teleop period of an FTC match. The names of OpModes appear on the menu
- * of the FTC Driver Station. When an selection is made from the menu, the corresponding OpMode
- * class is instantiated on the Robot Controller and executed.
+ * This file contains a suite of tests to validate several motor control capabilities.
  *
- * This particular OpMode just executes a basic Tank Drive Teleop for a two wheeled robot
- * It includes all the skeletal structure that all linear OpModes contain.
+ * Start the opmode and select run.
+ *   Then, using the gamepad Y amd A button, select the desired test.
+ *   Once selected, use the B button to start the test.
+ *   Most tests can be terminated by hitting the X button.
  *
- * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
- * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Motor and PID test", group="Linear Opmode")
+@TeleOp(name="Motor and PID test", group="Phil Malone")
 public class TestMotorPID extends LinearOpMode {
 
     // Declare OpMode members.
