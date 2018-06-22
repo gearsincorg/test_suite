@@ -61,6 +61,10 @@ enum TestModes {
  *   Once selected, use the B button to start the test.
  *   Most tests can be terminated by hitting the X button.
  *
+ * Most tests only require a single motor to be attached.  It is named left_drive
+ * An encoder MUST be attached to the motor (unless testing loss of encoder)
+ *
+ * Currently PIDF coefficients are preset by the opmode, for Andymark Neverest20/40/60
  */
 
 @TeleOp(name="Motor and PID test", group="Phil Malone")
@@ -68,7 +72,7 @@ public class TestMotorPID extends LinearOpMode {
 
     // Declare OpMode members.
     private ElapsedTime runtime     = new ElapsedTime();
-    private DcMotorEx motor         = null;
+    private DcMotorEx   motor       = null;
     private TestModes   testMode    = TestModes.OLP_ProportionalSpeeds;
 
     // Currently required for PID testing.
